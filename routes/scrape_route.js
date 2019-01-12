@@ -44,7 +44,8 @@ router.get("/articles",function(req,res){
 
 router.get("/article_details/:id",function(req,res){
     console.log("get the details");
-    md.Article.findById(req.params.id).then(function(dbArticle){
+    md.Article.findOne({ _id: req.params.id}).populate("Note").then(function(dbArticle){
+        console.log(dbArticle);
         var artdtlobj = {
             dbArticle: dbArticle
         }
@@ -53,4 +54,19 @@ router.get("/article_details/:id",function(req,res){
         res.json(err);
     });
 });
+
+router.post("/article_details/:id",function(req,res){
+    console.log(req.body);
+    md.Note.create(req.body).then(function (Note) {
+        return md.Article.findOneAndUpdate({ _id: req.params.id }, {$push: {Note: Note._id}},{ new: true})
+    }).then(function(result){
+        var artdtlobj = {
+            dbArticle: result
+        };
+        res.render("article_detail", artdtlobj);
+    }).catch(function(err){
+        res.json(err);
+    });
+});
+
 module.exports = router;

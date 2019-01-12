@@ -10,10 +10,13 @@ var ArtSchema = new Schema({
         type: String,
         required: true
     },
-    note: {
+    summary: {
+        type: String
+    },
+    note: [{
         type: Schema.Types.ObjectId,
         ref: "Note"
-    }
+    }]
 });
 
 var Article = mongoose.model("Article", ArtSchema);

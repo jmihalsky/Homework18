@@ -10,4 +10,21 @@
             {{/each}}
         </div>
     </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <h4>Notes</h4>
+            {{#each dbArticle}}
+            <p>{{this.note_body}}</p>
+            {{/each}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <form class="create-form" method="post">
+                <label class="form-check-label" for="note">Note:</label>
+                <textarea class="form-control" id="note"></textarea>
+                <button type="submit" id="addNote">Submit Note</button>
+            </form>
+        </div>
+    </div>
 </div>
