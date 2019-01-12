@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            {{#each dbArticle}}
+            <a style="display:block" href="/article_details/{{this._id}}">
+                <div id="article" data-id="{{this._id}}">
+                    <h3>{{this.title}}</h3>
+                </div>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+</div>
