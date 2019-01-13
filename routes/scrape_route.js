@@ -7,7 +7,7 @@ var cheerio = require("cheerio");
 var md = require("../models");
 
 router.get("/",function(req,res){
-    res.render("index");
+    res.redirect("/articles");
 });
 
 router.get("/scrape", function(req,res){
@@ -23,6 +23,7 @@ router.get("/scrape", function(req,res){
 
             md.Article.create(result).then(function(dbArticle){
                 console.log(dbArticle);
+                res.redirect("/articles");
             }).catch(function(err){
                 console.log(err);
             });

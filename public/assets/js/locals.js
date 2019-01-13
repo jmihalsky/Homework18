@@ -31,3 +31,8 @@ $(".btn-delete").on("click", function(event){
         window.location.reload();
     });
 });
+
+$("#art_home").on("click",function(event){
+    event.preventDefault();
+    window.location = "/"
+})
