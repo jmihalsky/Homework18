@@ -1,21 +1,19 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            {{#each dbArticle}}
-            <a style="display:block" href="{{this.link}}" target="_blank">
-                <div id="article" data-id="{{this._id}}">
-                    <h3>{{this.title}}</h3>
+            <a class="artmain" href="{{dbArticle.link}}" target="_blank">
+                <div id="article" data-id="{{dbArticle._id}}">
+                    <h3>{{dbArticle.title}}</h3>
                 </div>
             </a>
-            {{/each}}
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <h4>Notes</h4>
-                <ul>
+            <h4>Notes on the article:</h4>
+                <ul id="article-list">
                     {{#each dbArticle.note}}
-                    <li>{{this.note_body}}
+                    <li class="note">{{this.note_body}}
                         <button type="button" class="btn-delete btn btn-secondary" data-id="{{this._id}}">Delete Note</button>
                     </li>
                     {{/each}}
@@ -25,8 +23,8 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-xs-12 col-sm-12 col-md-8">
-            <form class="create-form" method="post">
-                <label class="form-check-label" for="note">Note:</label>
+            <form class="create-form note-form" method="post">
+                <label class="form-check-label" for="note">Enter notes about the article:</label>
                 <textarea class="form-control" id="note"></textarea>
                 <button type="submit" id="addNote">Submit Note</button>
             </form>

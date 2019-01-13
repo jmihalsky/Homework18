@@ -12,6 +12,7 @@ router.get("/",function(req,res){
 
 router.get("/scrape", function(req,res){
     console.log("entering scraping");
+
     axios.get("https://politics.theonion.com/").then(function(response){
         var $ = cheerio.load(response.data);
 
@@ -23,17 +24,19 @@ router.get("/scrape", function(req,res){
 
             md.Article.create(result).then(function(dbArticle){
                 console.log(dbArticle);
-                res.redirect("/articles");
+                
             }).catch(function(err){
                 console.log(err);
             });
+        }).then(function(){
+            res.redirect("/articles");
         });
+       
     });
 });
 
 router.get("/articles",function(req,res){
     md.Article.find({}).then(function(dbArticle){
-        console.log(dbArticle);
         var artobj = {
             dbArticle: dbArticle
         }

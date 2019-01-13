@@ -34,5 +34,10 @@ $(".btn-delete").on("click", function(event){
 
 $("#art_home").on("click",function(event){
     event.preventDefault();
-    window.location = "/"
+    window.location = "/";
+})
+
+$("#scraper").on("click",function(event){
+    event.preventDefault();
+    window.location = "/scrape";
 })

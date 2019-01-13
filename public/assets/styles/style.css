@@ -2,5 +2,57 @@
     background-image: url("../img/newsroom.jpg");
     background-repeat: no-repeat;
     padding-top: 100px;
-    padding-bottom: 180px;
+    padding-bottom: 80px;
+    text-align: center;
+}
+
+body {
+    font-family: 'Slabo 27px', serif;
+}
+
+h1 {
+    height: 60px;
+    font-size: 6rem;
+    color: #15215A;
+}
+
+.article {
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.artmain {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    display: block;
+}
+
+#article-list {
+    list-style: none;
+}
+
+.note {
+    font-size: 26px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-items: right;
+}
+
+.note-form {
+    margin: 10px;
+}
+
+#note {
+    height: 120px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
+#scraper {
+    margin-top: 75px;
 }
