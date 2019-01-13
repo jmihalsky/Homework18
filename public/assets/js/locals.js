@@ -1,7 +1,7 @@
 $("#addNote").on("click",function(event){
     event.preventDefault();
 
-    var id = $(this).attr("data-id");
+    var id = $("#article").attr("data-id");
     console.log(id);
 
     var note_info = {
@@ -9,11 +9,25 @@ $("#addNote").on("click",function(event){
     };
 
     console.log(note_info);
+    console.log("/article_details/" + id);
 
     $.ajax("/article_details/" + id,{
         type: "POST",
         data: note_info
     }).then(function() {
-        location.reload();
+        window.location.reload();
+    });
+});
+
+$(".btn-delete").on("click", function(event){
+    event.preventDefault();
+
+    var note_id = $(this).attr("data-id");
+
+    $.ajax({
+        method: "DELETE",
+        url: "/article_details/" + note_id
+    }).then(function(){
+        window.location.reload();
     });
 });

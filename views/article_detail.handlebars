@@ -13,9 +13,13 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <h4>Notes</h4>
-            {{#each dbArticle}}
-            <p>{{this.note_body}}</p>
-            {{/each}}
+                <ul>
+                    {{#each dbArticle.note}}
+                    <li>{{this.note_body}}
+                        <button type="button" class="btn-delete btn btn-secondary" data-id="{{this._id}}">Delete Note</button>
+                    </li>
+                    {{/each}}
+                </ul>
         </div>
     </div>
     <div class="row">
